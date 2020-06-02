@@ -1,0 +1,16 @@
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+server:
+  port: 8995
+
+zuul:
+  prefix: /api
+  routes:
+    news-db-service:
+      path: /db-service/**
+      url: http://localhost:8991
+    news-subscriber-service:
+      path: /subscriber-service/**
+      url: http://localhost:8992
